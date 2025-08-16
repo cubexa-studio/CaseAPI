@@ -1,6 +1,6 @@
 # CaseAPI
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 
 CaseAPI is a lightweight API designed to integrate seamlessly with the CaseOpening plugin. It allows other plugins to interact with cases, track statistics, and extend functionality.
 
@@ -20,7 +20,7 @@ CaseAPI is a lightweight API designed to integrate seamlessly with the CaseOpeni
 <dependency>
     <groupId>com.github.cubexa-studio</groupId>
     <artifactId>CaseAPI</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <scope>provided</scope>
 </dependency>
 ```
@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.github.cubexa-studio:CaseAPI:1.0.0")
+    compileOnly("com.github.cubexa-studio:CaseAPI:1.1.0")
 }
 ```
 

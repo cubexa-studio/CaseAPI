@@ -1,9 +1,9 @@
 package org.tommy.caseapi;
 
 import org.tommy.caseapi.events.CaseOpeningEventListener;
-import org.tommy.caseapi.utils.FutureResult;
 
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * The CaseAPI interface provides methods to interact with the CaseOpening.
@@ -15,27 +15,27 @@ public interface CaseAPI {
      * Checks if a case with the given ID exists.
      *
      * @param caseId The ID of the case to check.
-     * @return A {@link FutureResult} that completes with {@code true} if the case exists, {@code false} otherwise.
+     * @return A {@link CompletableFuture} that completes with {@code true} if the case exists, {@code false} otherwise.
      */
-    FutureResult<Boolean> caseExists(String caseId);
+    CompletableFuture<Boolean> caseExists(String caseId);
 
     /**
      * Opens a case for a player and removes one from them.
      *
      * @param playerUuid The uuid of the player opening the case.
      * @param caseId The ID of the case to open.
-     * @return A {@link FutureResult} that completes with {@code true} if the case was successfully opened, {@code false} otherwise.
+     * @return A {@link CompletableFuture} that completes with {@code true} if the case was successfully opened, {@code false} otherwise.
      */
-    FutureResult<Boolean> openCaseWithRemove(UUID playerUuid, String caseId);
+    CompletableFuture<Boolean> openCaseWithRemove(UUID playerUuid, String caseId);
 
     /**
      * Opens a case for a player without removing it.
      *
      * @param playerUuid The uuid of the player opening the case.
      * @param caseId The ID of the case to open.
-     * @return A {@link FutureResult} that completes with {@code true} if the case was successfully opened, {@code false} otherwise.
+     * @return A {@link CompletableFuture} that completes with {@code true} if the case was successfully opened, {@code false} otherwise.
      */
-    FutureResult<Boolean> openCaseWithoutRemove(UUID playerUuid, String caseId);
+    CompletableFuture<Boolean> openCaseWithoutRemove(UUID playerUuid, String caseId);
 
     /**
      * Opens a case preview for a player.
@@ -100,33 +100,33 @@ public interface CaseAPI {
      * Retrieves the current amount of jewelry owned by the given player.
      *
      * @param playerUuid The uuid of the player whose jewelry amount is requested.
-     * @return The current amount of jewelry the player owns as a {@link FutureResult}.
+     * @return The current amount of jewelry the player owns as a {@link CompletableFuture}.
      */
-    FutureResult<Integer> getJewelry(UUID playerUuid);
+    CompletableFuture<Integer> getJewelry(UUID playerUuid);
 
     /**
      * Gets the number of a specific case a player owns.
      *
      * @param playerUuid The uuid of the player whose case count is retrieved.
      * @param caseId The ID of the case.
-     * @return The number of cases the player owns as a {@link FutureResult}.
+     * @return The number of cases the player owns as a {@link CompletableFuture}.
      */
-    FutureResult<Integer> getPlayerCases(UUID playerUuid, String caseId);
+    CompletableFuture<Integer> getPlayerCases(UUID playerUuid, String caseId);
 
     /**
      * Gets the total number of cases opened globally.
      *
-     * @return The total number of opened cases as a {@link FutureResult}.
+     * @return The total number of opened cases as a {@link CompletableFuture}.
      */
-    FutureResult<Integer> getTotalCasesOpened();
+    CompletableFuture<Integer> getTotalCasesOpened();
 
     /**
      * Gets the total number of cases opened by a specific player.
      *
      * @param playerUuid The uuid of the player whose case opening count is retrieved.
-     * @return The total number of cases opened by the player as a {@link FutureResult}.
+     * @return The total number of cases opened by the player as a {@link CompletableFuture}.
      */
-    FutureResult<Integer> getTotalCasesOpenedByPlayer(UUID playerUuid);
+    CompletableFuture<Integer> getTotalCasesOpenedByPlayer(UUID playerUuid);
 
     /**
      * Registers a new {@link CaseOpeningEventListener} to receive CaseAPI events.
